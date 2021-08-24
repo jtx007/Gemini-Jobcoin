@@ -63,7 +63,7 @@ Made with the [Create React App template](https://chakra-ui.com/guides/integrati
 - There's a faux login via jobcoin address using React Context via [auth](src/context/auth.js) file. The Login pages makes a request to the jobcoin api via axios and stores the user balance and their transactions.
 - Then that data is fetched again along with all transaction data occurred in the api instance, to be displayed on the [Profile](src/pages/Profile.js) in specific [ProfileSection](src/components/ProfileSection.js) components with the user balance and the [SenderForm](src/components/SenderForm.js) component to send jobcoins to other addresses.
 - The user's jobcoin balance is displayed, a form to send jobcoins to another jobcoin address via the [SenderForm](src/components/SenderForm.js) component, as well as a Transaction Log displayed with the [TransactionLogItem](src/components/TransactionLogItem.js) item in the [TransactionLog](src/components/TransactionLog.js) component, which updates as jobcoins are sent to other other jobcoin addresses.
-- Lastly we have a line chart displayed via the [TransactionChart](src/components/TransactionChart) component, which displays the user's transactions over time and renders dynamically as jobcoins are sent to other addresses. There is also a custom tooltip to provide more specific transaction related data.
+- Lastly we have a line chart displayed via the [TransactionChart](src/components/TransactionChart.js) component, which displays the user's transactions over time and renders dynamically as jobcoins are sent to other addresses. There is also a custom tooltip to provide more specific transaction related data.
 
 ## Stretch Features
 

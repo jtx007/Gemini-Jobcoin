@@ -69,5 +69,6 @@ Made with the [Create React App template](https://chakra-ui.com/guides/integrati
 
 - More in depth unit tests.
 - Responsiveness could be better, had some issues making the Recharts line chart component(s) responsive.
+- Format the timestamps for the linechart X-axis
 
 

@@ -2,13 +2,13 @@
 
 This is my jobcoin submission for the Gemini take home assignment for the Frontend Engineer Position. 
 
-## Sample login for my api instance *jtx007*
+## Sample jobcoin addresse(s) for my api instance **jtx007, mark, brandon, and james**
 
 ## Prerequisites
 
 - **nvm**: use [nvm](https://github.com/nvm-sh/nvm) and run `nvm install` and nvm will read the .npmrc file to install the compatible node version for this project - Node version 14.17.0
 
-- **npm**: install [npm](https://docs.npmjs.com/) globally. Its a great package manager and the following steps will utilize `npm` in the examples.
+- **yarn**: install [yarn](https://yarnpkg.com/) globally. Its a great package and project manager and the following steps will utilize `yarn` in the examples.
 
 ## Tech Stack
 
@@ -61,8 +61,8 @@ Made with the [Create React App template](https://chakra-ui.com/guides/integrati
 - For this app, I have a Chakra Provider that wraps my entire application, with a theme prop, which is extending the default [theme](src/theme.js) from Chakra UI with some custom styles of my own. I then have a [Layout](src/components/Layout.js) component which encompasses the [Navbar](src/components/Navbar.js) wrapping the application.
 - Then I have the Router provider from reach/router wrapping the page components for the application with routes for the [Login](src/pages/Login.js) and [Profile](src/pages/Profile.js).
 - There's a faux login via jobcoin address using React Context via [auth](src/context/auth.js) file. The Login pages makes a request to the jobcoin api via axios and stores the user balance and their transactions.
-- Then that data is fetched again along with all transaction data occurred in the api instance, to be displayed on the [Profile](src/pages/Profile.js)
-- The user's jobcoin balance is displayed, a form to send jobcoins to another jobcoin address via the [SenderForm](src/components/SenderForm.js) component, as well as a Transaction Log displayed with the [TransactionLogItem](src/components/TransactionLogItem.js) item.
+- Then that data is fetched again along with all transaction data occurred in the api instance, to be displayed on the [Profile](src/pages/Profile.js) in specific [ProfileSection](src/components/ProfileSection.js) components with the user balance and the [SenderForm](src/components/SenderForm.js) component to send jobcoins to other addresses.
+- The user's jobcoin balance is displayed, a form to send jobcoins to another jobcoin address via the [SenderForm](src/components/SenderForm.js) component, as well as a Transaction Log displayed with the [TransactionLogItem](src/components/TransactionLogItem.js) item in the [TransactionLog](src/components/TransactionLog.js) component, which updates as jobcoins are sent to other other jobcoin addresses.
 - Lastly we have a line chart displayed via the [TransactionChart](src/components/TransactionChart) component, which displays the user's transactions over time and renders dynamically as jobcoins are sent to other addresses. There is also a custom tooltip to provide more specific transaction related data.
 
 ## Stretch Features

@@ -3,6 +3,7 @@ import { Redirect } from '@reach/router';
 import { AuthContext } from '../context/auth';
 import { SimpleGrid, Box, Heading, useToast, Spinner } from '@chakra-ui/react';
 import { jobcoinAPI } from '../api';
+import ProfileSection from '../components/ProfileSection';
 import SenderForm from '../components/SenderForm';
 import TransactionChart from '../components/TransactionChart';
 import TransactionLogItem from '../components/TransactionLogItem';
@@ -80,75 +81,25 @@ const Profile = () => {
           columns={[1, 1, 2, 2]}
           spacing={10}
         >
-          <Box
-            width={[null, null, null, '20vw']}
-            height="15vh"
-            border="1px"
-            borderRadius="10px"
-          >
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              height="5vh"
-              border="1px"
-              borderTopRadius="10px"
-              bgColor="salmon"
-              whiteSpace="nowrap"
-              p={5}
-            >
-              <Heading textAlign="center" fontSize="2xl">
-                Jobcoin Balance
-              </Heading>
-            </Box>
-            <Box
+          <Box>
+            <ProfileSection
               height="10vh"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
+              title="Jobcoin Balance"
+              titleBgColor="salmon"
             >
               <Heading textAlign="center" fontSize="2xl">
                 {parseInt(userBalance)}
               </Heading>
-            </Box>
-            <Box border="1px" borderRadius="10px" mt={24}>
-              <Box
-                display="flex"
-                flexDir="column"
-                justifyContent="center"
-                alignItems="center"
-                height="5vh"
-                border="1px"
-                borderTopRadius="10px"
-                bgColor="violet"
-              >
-                <Heading fontSize="xl" textAlign="center">
-                  Send Jobcoins
-                </Heading>
-              </Box>
-              <SenderForm setTransactions={setUserTransactions} />
-            </Box>
-            <Box
-              border="1px"
-              borderRadius="10px"
-              mt={24}
-              h="30vh"
+            </ProfileSection>
+            <ProfileSection title="Send Jobcoin" titleBgColor="slateblue">
+              <SenderForm />
+            </ProfileSection>
+            <ProfileSection
+              title="Transaction Log"
+              titleBgColor="teal.200"
+              height="25vh"
               overflow="scroll"
             >
-              <Box
-                display="flex"
-                flexDir="column"
-                justifyContent="center"
-                alignItems="center"
-                height="5vh"
-                border="1px"
-                borderTopRadius="10px"
-                bgColor="slateblue"
-              >
-                <Heading fontSize="xl" textAlign="center">
-                  Transaction Log
-                </Heading>
-              </Box>
               {loading && (
                 <Spinner
                   thickness="4px"
@@ -156,15 +107,14 @@ const Profile = () => {
                   emptyColor="gray.200"
                   color="blue.500"
                   size="xl"
-                  textAlign="center"
-                  display="flex"
-                  justifyContent="center"
                 />
               )}
-              {renderLogItems()}
-            </Box>
+              <Box display="flex" flexDir="column" alignItems="center">
+                {renderLogItems()}
+              </Box>
+            </ProfileSection>
           </Box>
-          <Box>
+          <Box mt={['1200px', '1200px', '1200px', '100px']}>
             <TransactionChart graphData={userTransactions} />
           </Box>
         </SimpleGrid>

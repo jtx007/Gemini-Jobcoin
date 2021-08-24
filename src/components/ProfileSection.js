@@ -1,13 +1,7 @@
 import { Box, Heading } from '@chakra-ui/react';
 import React from 'react';
 
-const ProfileSection = ({
-  title,
-  titleBgColor,
-  children,
-  height,
-  overflow,
-}) => {
+const ProfileSection = ({ title, titleBgColor, children }) => {
   return (
     <Box
       width={[null, null, null, '20vw']}
@@ -28,13 +22,7 @@ const ProfileSection = ({
           {title}
         </Heading>
       </Box>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        overflow={overflow ? overflow : null}
-        height={height ? height : null}
-      >
+      <Box display="flex" justifyContent="center" alignItems="center" p={5}>
         {children}
       </Box>
     </Box>

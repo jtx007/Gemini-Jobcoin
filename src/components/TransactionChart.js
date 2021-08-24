@@ -1,5 +1,4 @@
 import { Box, Text } from '@chakra-ui/react';
-import { format } from 'date-fns';
 
 import React from 'react';
 
@@ -29,7 +28,10 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const TransactionChart = ({ graphData }) => {
   return (
-    <Box mt={['1100px', '1100px', '10px']} mr={['1000px', '1000px', '0', '0']}>
+    <Box
+      mt={['null', '1100px', '1100px', '10px']}
+      mr={['1000px', '1000px', '0', '0']}
+    >
       <LineChart
         width={800}
         height={500}

@@ -9,15 +9,15 @@ const Navbar = () => {
   const {
     loginStatus,
     userAddress,
-    handleUserAddress,
-    handleUserBalance,
-    handleLoginStatus,
+    handleUserAddressInCtx,
+    handleUserBalanceInCtx,
+    handleLoginStatusInCtx,
   } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    handleUserBalance(null);
-    handleUserAddress(null);
-    handleLoginStatus(false);
+    handleUserAddressInCtx(null);
+    handleUserBalanceInCtx(null);
+    handleLoginStatusInCtx(false);
     await navigate('/login');
   };
 

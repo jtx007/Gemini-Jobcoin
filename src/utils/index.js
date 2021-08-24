@@ -1,24 +1,24 @@
 // localStorage Helper Methods
-export const setCurrentUserAddress = userAddress => {
+export const setCurrentUserAddressLocalStorage = userAddress => {
   localStorage.setItem('currentUserAddress', userAddress);
 };
 
-export const getCurrentUserAddress = () => {
+export const getCurrentUserAddressLocalStorage = () => {
   return localStorage.getItem('currentUserAddress');
 };
 
-export const setCurrentUserBalance = userBalance => {
+export const setCurrentUserBalanceLocalStorage = userBalance => {
   localStorage.setItem('currentUserBalance', userBalance);
 };
 
-export const getCurrentUserBalance = () => {
+export const getCurrentUserBalanceLocalStorage = () => {
   return localStorage.getItem('currentUserBalance');
 };
 
-export const setCurrentLoginStatus = loginStatus => {
+export const setCurrentLoginStatusLocalStorage = loginStatus => {
   localStorage.setItem('currentLoginStatus', loginStatus);
 };
 
-export const getCurrentLoginStatus = () => {
+export const getCurrentLoginStatusLocalStorage = () => {
   return localStorage.getItem('currentLoginStatus');
 };

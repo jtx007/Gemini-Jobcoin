@@ -1,43 +1,46 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { jobcoinAPI } from '../api';
+import React, { createContext, useState } from 'react';
 import {
-  getCurrentUserAddress,
-  getCurrentUserBalance,
-  getCurrentLoginStatus,
-  setCurrentUserBalance,
-  setCurrentUserAddress,
-  setCurrentLoginStatus,
+  getCurrentUserAddressLocalStorage,
+  getCurrentUserBalanceLocalStorage,
+  getCurrentLoginStatusLocalStorage,
+  setCurrentUserBalanceLocalStorage,
+  setCurrentUserAddressLocalStorage,
+  setCurrentLoginStatusLocalStorage,
 } from '../utils';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [userAddress, setUserAddress] = useState('' || getCurrentUserAddress());
-  const [userBalance, setUserBalance] = useState('' || getCurrentUserBalance());
+  const [userAddress, setUserAddress] = useState(
+    '' || getCurrentUserAddressLocalStorage()
+  );
+  const [userBalance, setUserBalance] = useState(
+    '' || getCurrentUserBalanceLocalStorage()
+  );
   const [loginStatus, setLoginStatus] = useState(
-    false || getCurrentLoginStatus()
+    false || getCurrentLoginStatusLocalStorage()
   );
 
-  const handleLoginStatus = boolean => {
+  const handleLoginStatusInCtx = boolean => {
     setLoginStatus(boolean);
-    setCurrentLoginStatus(boolean ? true : '');
+    setCurrentLoginStatusLocalStorage(boolean ? true : '');
   };
 
-  const handleUserBalance = balance => {
-    setCurrentUserBalance(balance);
+  const handleUserBalanceInCtx = balance => {
+    setCurrentUserBalanceLocalStorage(balance);
     setUserBalance(balance);
   };
-  const handleUserAddress = address => {
+  const handleUserAddressInCtx = address => {
     setUserAddress(address);
-    setCurrentUserAddress(address);
+    setCurrentUserAddressLocalStorage(address);
   };
 
   return (
     <AuthContext.Provider
       value={{
         loginStatus,
-        handleLoginStatus,
-        handleUserAddress,
-        handleUserBalance,
+        handleLoginStatusInCtx,
+        handleUserBalanceInCtx,
+        handleUserAddressInCtx,
         userBalance,
         userAddress,
       }}

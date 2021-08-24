@@ -5,18 +5,17 @@ import {
   Input,
   Button,
   useToast,
-  FormErrorMessage,
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
 import { jobcoinAPI } from '../api';
 import { AuthContext } from '../context/auth';
 
-const SenderForm = ({ setTransactions }) => {
+const SenderForm = ({ setUserTransactions, setAllTransactions }) => {
   const [amountToSend, setAmountToSend] = useState('');
   const [receiverAddress, setReceiverAddress] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { userAddress, handleUserBalance } = useContext(AuthContext);
+  const { userAddress, handleUserBalanceInCtx } = useContext(AuthContext);
 
   const toast = useToast();
 
@@ -59,10 +58,11 @@ const SenderForm = ({ setTransactions }) => {
       });
       const currentUser = await jobcoinAPI.get(`/addresses/${userAddress}`);
       const userData = await currentUser.data;
-      handleUserBalance(userData.balance);
-      const transactions = await jobcoinAPI.get('/transactions');
-      const transactionData = await transactions.data;
-      setTransactions(transactionData);
+      handleUserBalanceInCtx(userData.balance);
+      const allTransactions = await jobcoinAPI.get('/transactions');
+      const allTransactionData = await allTransactions.data;
+      setUserTransactions(userData.transactions);
+      setAllTransactions(allTransactionData);
       setAmountToSend('');
       setReceiverAddress('');
     } catch (e) {

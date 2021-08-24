@@ -20,9 +20,9 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const {
     loginStatus,
-    handleUserAddress,
-    handleUserBalance,
-    handleLoginStatus,
+    handleUserAddressInCtx,
+    handleUserBalanceInCtx,
+    handleLoginStatusInCtx,
   } = useContext(AuthContext);
 
   const toast = useToast();
@@ -44,9 +44,9 @@ const Login = () => {
         setLoading(false);
         return;
       }
-      handleLoginStatus(true);
-      handleUserAddress(jobcoinAddress);
-      handleUserBalance(balance);
+      handleLoginStatusInCtx(true);
+      handleUserAddressInCtx(jobcoinAddress);
+      handleUserBalanceInCtx(balance);
       toast({
         title: `${jobcoinAddress} login successful`,
         position: 'top',

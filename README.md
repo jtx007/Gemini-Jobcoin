@@ -2,7 +2,7 @@
 
 This is my jobcoin submission for the Gemini take home assignment for the Frontend Engineer Position. 
 
-#### Sample jobcoin address logins for my api instance **jtx007, mark, brandon, and james**
+#### Sample jobcoin address logins for my api instance: [ **jtx007, mark, brandon, and james** ]
 
 ## Prerequisites
 

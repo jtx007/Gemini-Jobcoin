@@ -2,7 +2,7 @@
 
 This is my jobcoin submission for the Gemini take home assignment for the Frontend Engineer Position. 
 
-#### Sample jobcoin address logins for my api instance **jtx007, mark, brandon, and james**
+#### Sample jobcoin address logins for my api instance: [ **jtx007, mark, brandon, and james** ]
 
 ## Prerequisites
 
@@ -69,5 +69,6 @@ Made with the [Create React App template](https://chakra-ui.com/guides/integrati
 
 - More in depth unit tests.
 - Responsiveness could be better, had some issues making the Recharts line chart component(s) responsive.
+- Format the timestamps for the linechart X-axis
 
 
